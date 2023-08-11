@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style_messenger.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <title>Мессенджер с чат ботом</title>
+</head>
+<body>
+    <section class="side-panel">
+        
+            <div class="settings">
+                <div class="settings__wrapper">
+                    <div class="settings__menu">
+                        <button class="button button_menu" id="settings__button_menu" type="button">
+                            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.999991 12H19C19.2549 12.0003 19.5 12.0979 19.6854 12.2728C19.8707 12.4478 19.9822 12.687 19.9972 12.9414C20.0121 13.1958 19.9293 13.4464 19.7657 13.6418C19.6021 13.8373 19.3701 13.9629 19.117 13.993L19 14H0.999991C0.745111 13.9997 0.499959 13.9021 0.314622 13.7272C0.129286 13.5522 0.0177558 13.313 0.00281867 13.0586C-0.0121185 12.8042 0.0706654 12.5536 0.234256 12.3582C0.397846 12.1627 0.629895 12.0371 0.882991 12.007L0.999991 12H19H0.999991ZM0.999991 6L19 5.998C19.2549 5.99828 19.5 6.09588 19.6854 6.27085C19.8707 6.44582 19.9822 6.68495 19.9972 6.93939C20.0121 7.19384 19.9293 7.44438 19.7657 7.63983C19.6021 7.83529 19.3701 7.9609 19.117 7.991L19 7.998L0.999991 8C0.745111 7.99972 0.499959 7.90212 0.314622 7.72715C0.129286 7.55218 0.0177558 7.31305 0.00281867 7.05861C-0.0121185 6.80416 0.0706654 6.55362 0.234256 6.35817C0.397846 6.16271 0.629895 6.0371 0.882991 6.007L0.999991 6L19 5.998L0.999991 6ZM0.999991 0H19C19.2549 0.000282707 19.5 0.0978789 19.6854 0.272848C19.8707 0.447817 19.9822 0.686953 19.9972 0.941395C20.0121 1.19584 19.9293 1.44638 19.7657 1.64183C19.6021 1.83729 19.3701 1.9629 19.117 1.993L19 2H0.999991C0.745111 1.99972 0.499959 1.90212 0.314622 1.72715C0.129286 1.55218 0.0177558 1.31305 0.00281867 1.05861C-0.0121185 0.804163 0.0706654 0.553621 0.234256 0.358168C0.397846 0.162715 0.629895 0.0371036 0.882991 0.00699997L0.999991 0H19H0.999991Z" fill="#707991"/>
+                                </svg>
+                        </button>
+                    </div>
+
+                    <div class="settings__search">
+                        <form class="settings__form">
+                            <input id="settings__input" placeholder="Поиск контакта">
+                            <button class="button button_menu button_menu-search" id="settings__button_search" type="button">
+                                <svg class="arrow-svg" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.99997 0.5C9.39795 0.499944 10.7681 0.890614 11.9559 1.62792C13.1436 2.36523 14.1016 3.41983 14.7218 4.6727C15.342 5.92558 15.5997 7.32686 15.4658 8.71841C15.3319 10.11 14.8117 11.4364 13.964 12.548L18.707 17.293C18.8863 17.473 18.9904 17.7144 18.9982 17.9684C19.006 18.2223 18.9168 18.4697 18.7487 18.6603C18.5807 18.8508 18.3464 18.9703 18.0935 18.9944C17.8406 19.0185 17.588 18.9454 17.387 18.79L17.293 18.707L12.548 13.964C11.601 14.6861 10.4956 15.1723 9.32341 15.3824C8.15119 15.5925 6.9458 15.5204 5.80697 15.1721C4.66814 14.8238 3.62862 14.2094 2.77443 13.3795C1.92023 12.5497 1.27592 11.5285 0.894799 10.4002C0.513683 9.27192 0.406722 8.06912 0.582766 6.89131C0.75881 5.7135 1.2128 4.59454 1.90717 3.62703C2.60153 2.65951 3.51631 1.87126 4.57581 1.32749C5.63532 0.783715 6.80908 0.500063 7.99997 0.5ZM7.99997 2.5C6.54128 2.5 5.14233 3.07946 4.11088 4.11091C3.07943 5.14236 2.49997 6.54131 2.49997 8C2.49997 9.45869 3.07943 10.8576 4.11088 11.8891C5.14233 12.9205 6.54128 13.5 7.99997 13.5C9.45866 13.5 10.8576 12.9205 11.8891 11.8891C12.9205 10.8576 13.5 9.45869 13.5 8C13.5 6.54131 12.9205 5.14236 11.8891 4.11091C10.8576 3.07946 9.45866 2.5 7.99997 2.5Z" fill="#707991"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contacts">
+                <div class="contacts__wrapper">
+                    <div class="contacts__user">
+                        <div class="contacts__ico contacts__ico_1"><div class="contacts__status contacts__status-online"></div></div>
+                        <div class="contacts__box">
+                            <div class="contacts__name">
+                                <div class="contacts__nick"><span class="contacts__span-nick">Бендер</span></div>
+                                <div class="contacts__time"><span class="contacts__span-time">18:30</span></div>
+                            </div>
+                            <div class="contacts__mess">
+                                <div class="contacts__messages"><p class="contacts__span-messages">Я люблю вас, мешки с мясом!</p></div>
+                                <div class="contacts__unread"><span class="contacts__span-unread">1</span></div>                       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contacts__wrapper">
+                    <div class="contacts__user">
+                        <div class="contacts__ico contacts__ico_2"><div class="contacts__status"></div></div>
+                        <div class="contacts__box">
+                            <div class="contacts__name">
+                                <div class="contacts__nick"><span class="contacts__span-nick">Эдвард Нортон</span></div>
+                                <div class="contacts__time"><span class="contacts__span-time">Вчера</span></div>
+                            </div>
+                            <div class="contacts__mess">
+                                <div class="contacts__messages"><p class="contacts__span-messages">Ну уж нет 😀</p></div>
+                                <div class="contacts__unread"><span class="contacts__span-unread">5</span></div>                       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contacts__wrapper">
+                    <div class="contacts__user">
+                        <div class="contacts__ico contacts__ico_3"></div>
+                        <div class="contacts__box">
+                            <div class="contacts__name">
+                                <div class="contacts__nick"><span class="contacts__span-nick">Роберт Дауни Мл.</span></div>
+                                <div class="contacts__time"><span class="contacts__span-time">3 дн.</span></div>
+                            </div>
+                            <div class="contacts__mess">
+                                <div class="contacts__messages"><p class="contacts__span-messages">У меня дел полно, давай завтра.</p></div>
+                                <div class="contacts__unread"><span class="contacts__span-unread">10</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <main>
+        <div class="main__header">
+            <div class="main__wrapper">
+                <div class="main__box-info">
+                    <div class="main__contacts-ico"></div>
+                    <div class="main__contacts-name">
+                        <div class="contacts__nick"><span class="contacts__span-nick">Бендер</span></div>
+                        <div class="main__user-status"><span class="main__user-status">Online</span></div> 
+                    </div>
+                </div>
+
+                <div class="main__box-settings">
+                    <button class="button button_header" id="button__search" type="button" title = 'Поиск сообщений'>
+                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 0.5C9.39798 0.499944 10.7681 0.890614 11.9559 1.62792C13.1436 2.36523 14.1016 3.41983 14.7218 4.6727C15.342 5.92558 15.5997 7.32686 15.4658 8.71841C15.3319 10.11 14.8117 11.4364 13.964 12.548L18.707 17.293C18.8864 17.473 18.9905 17.7144 18.9982 17.9684C19.006 18.2223 18.9168 18.4697 18.7488 18.6603C18.5807 18.8508 18.3464 18.9703 18.0935 18.9944C17.8406 19.0185 17.588 18.9454 17.387 18.79L17.293 18.707L12.548 13.964C11.601 14.6861 10.4957 15.1723 9.32344 15.3824C8.15123 15.5925 6.94583 15.5204 5.807 15.1721C4.66817 14.8238 3.62865 14.2094 2.77446 13.3795C1.92026 12.5497 1.27595 11.5285 0.89483 10.4002C0.513713 9.27192 0.406752 8.06912 0.582797 6.89131C0.758841 5.7135 1.21283 4.59454 1.9072 3.62703C2.60156 2.65951 3.51634 1.87126 4.57585 1.32749C5.63535 0.783715 6.80911 0.500063 8 0.5V0.5ZM8 2.5C6.54131 2.5 5.14236 3.07946 4.11091 4.11091C3.07946 5.14236 2.5 6.54131 2.5 8C2.5 9.45869 3.07946 10.8576 4.11091 11.8891C5.14236 12.9205 6.54131 13.5 8 13.5C9.45869 13.5 10.8576 12.9205 11.8891 11.8891C12.9205 10.8576 13.5 9.45869 13.5 8C13.5 6.54131 12.9205 5.14236 11.8891 4.11091C10.8576 3.07946 9.45869 2.5 8 2.5Z" fill="#707991"/>
+                            </svg>
+                    </button>
+
+                    <button class="button button_header" id="button__call" type="button" title = 'Онлайн звонок'>
+                        <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.77201 0.438993L3.84801 0.0949929C4.85801 -0.227007 5.93501 0.293993 6.36801 1.31199L7.22701 3.33999C7.60101 4.22299 7.39401 5.26199 6.71301 5.90799L4.81901 7.70599C4.93501 8.78199 5.29701 9.84099 5.90301 10.883C6.47879 11.8912 7.25104 12.7736 8.17401 13.478L10.449 12.718C11.312 12.431 12.251 12.762 12.779 13.539L14.012 15.349C14.627 16.253 14.517 17.499 13.754 18.265L12.936 19.086C12.122 19.903 10.959 20.2 9.88401 19.864C7.34501 19.072 5.01101 16.721 2.88101 12.811C0.748009 8.89499 -0.00499088 5.57099 0.623009 2.84299C0.887009 1.69499 1.70401 0.779993 2.77201 0.438993Z" fill="#707991"/>
+                            </svg>
+                    </button>
+
+                    <button class="button button_header" id="button__settings" type="button" title = 'Настройки внешнего вида и звуков'>
+                        <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 4C1.46957 4 0.96086 3.78929 0.585787 3.41421C0.210714 3.03914 0 2.53043 0 2C0 1.46957 0.210714 0.960859 0.585787 0.585786C0.96086 0.210714 1.46957 0 2 0C2.53043 0 3.03914 0.210714 3.41421 0.585786C3.78929 0.960859 4 1.46957 4 2C4 2.53043 3.78929 3.03914 3.41421 3.41421C3.03914 3.78929 2.53043 4 2 4ZM2 10C1.46957 10 0.96086 9.78929 0.585787 9.41421C0.210714 9.03914 0 8.53043 0 8C0 7.46957 0.210714 6.96086 0.585787 6.58579C0.96086 6.21071 1.46957 6 2 6C2.53043 6 3.03914 6.21071 3.41421 6.58579C3.78929 6.96086 4 7.46957 4 8C4 8.53043 3.78929 9.03914 3.41421 9.41421C3.03914 9.78929 2.53043 10 2 10ZM0 14C0 14.5304 0.210714 15.0391 0.585787 15.4142C0.96086 15.7893 1.46957 16 2 16C2.53043 16 3.03914 15.7893 3.41421 15.4142C3.78929 15.0391 4 14.5304 4 14C4 13.4696 3.78929 12.9609 3.41421 12.5858C3.03914 12.2107 2.53043 12 2 12C1.46957 12 0.96086 12.2107 0.585787 12.5858C0.210714 12.9609 0 13.4696 0 14Z" fill="#707991"/>
+                            </svg>
+                    </button>
+
+                    <div class="profile__settings">
+                        <div class="profile__box-sett">
+                            <div class="profile__notifications">
+                                <span class="profile__text">Вкл/откл звук уведомления</span>
+                                <label class="checkbox-ios">
+                                    <input type="checkbox" id="profile__checkbox-sound" checked>
+                                    <span class="checkbox-ios-switch"></span>
+                                </label>
+                            </div>
+            
+                            <div class="profile__notifications">
+                                <span class="profile__text">Светлая/тёмная тема</span>
+                                <label class="checkbox-ios">
+                                    <input type="checkbox" id="profile__checkbox-theme">
+                                    <span class="checkbox-ios-switch"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="main__messenges">
+            <div class="main__wrapper-messenges">
+                    <div class="main__correspondence" id="placehere">
+<!-- Начало блока сообщений -->
+                        <!-- <div class="main__mess"> 
+                            <span class="main__text">Это первое сообщение бота. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum consectetur fugiat eveniet laboriosam, sapiente voluptate eos consequatur quo impedit temporibus nihil quidem sunt dolores ullam quaerat autem nostrum libero officiis!</span>
+                            <div class="main__time-box">
+                                <span class="main__time">18:12</span>
+                                <div class="main__read main__read-no"></div>
+                            </div>
+                        </div>
+
+                        <div class="main__mess-user">  
+                            <span class="main__text">Это первое сообщение пользователя</span>
+                            <div class="main__time-box"> 
+                                <span class="main__time" id="main__time">18:12</span>
+                                <div class="main__read main__read-no"></div> 
+                            </div>
+                        </div> -->
+<!-- Конец блока сообщений -->
+                    </div>
+                    
+                    <form class="main__form">
+                            <div class="main__form-wrapper">
+                                <div class="main__form-smile">
+                                    <div class="main__wripper-smile">
+                                        <button class='button button_smile' id="button_smile_1" type="button">😀</button>
+                                        <button class='button button_smile' id="button_smile_2" type="button">😂</button>
+                                        <button class='button button_smile' id="button_smile_3" type="button">😉</button>
+                                        <button class='button button_smile' id="button_smile_4" type="button">😋</button>
+                                        <button class='button button_smile' id="button_smile_5" type="button">💩</button>
+                                        <button class='button button_smile' id="button_smile_6" type="button">😳</button>
+                                        <button class='button button_smile' id="button_smile_7" type="button">🙃</button>
+                                        <button class='button button_smile' id="button_smile_8" type="button">😉</button>
+                                        <button class='button button_smile' id="button_smile_9" type="button">😘</button>
+                                        <button class='button button_smile' id="button_smile_10" type="button">😪</button>
+                                        <button class='button button_smile' id="button_smile_11" type="button">😴</button>
+                                        <button class='button button_smile' id="button_smile_12" type="button">🤢</button>
+                                        <button class='button button_smile' id="button_smile_13" type="button">🥳</button>
+                                        <button class='button button_smile' id="button_smile_14" type="button">😎</button>
+                                        <button class='button button_smile' id="button_smile_15" type="button">😡</button>
+                                        <button class='button button_smile' id="button_smile_16" type="button">💋</button>
+                                        <button class='button button_smile' id="button_smile_17" type="button">💣</button>
+                                        <button class='button button_smile' id="button_smile_18" type="button">👌</button>
+                                    </div>
+                                </div>
+                                <button class="button button_form" id="button_smile" type="button">
+                                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 -0.00100708C16.524 -0.00100708 21.002 4.47699 21.002 10.001C21.002 15.524 16.524 20.002 11 20.002C5.47599 20.002 0.997986 15.524 0.997986 10.001C0.997986 4.47699 5.47599 -0.00100708 11 -0.00100708ZM11 1.49899C9.87579 1.4868 8.76035 1.69769 7.7182 2.11946C6.67606 2.54124 5.72792 3.16551 4.92865 3.95616C4.12938 4.74681 3.49486 5.68813 3.06181 6.72563C2.62876 7.76314 2.40578 8.87624 2.40578 10.0005C2.40578 11.1248 2.62876 12.2378 3.06181 13.2754C3.49486 14.3129 4.12938 15.2542 4.92865 16.0448C5.72792 16.8355 6.67606 17.4597 7.7182 17.8815C8.76035 18.3033 9.87579 18.5142 11 18.502C13.232 18.4678 15.361 17.5571 16.9273 15.9665C18.4937 14.376 19.3716 12.2333 19.3716 10.001C19.3716 7.76871 18.4937 5.62597 16.9273 4.03545C15.361 2.44493 13.232 1.53423 11 1.49999V1.49899ZM7.46199 12.784C7.88273 13.32 8.41994 13.7532 9.03292 14.0509C9.64589 14.3485 10.3186 14.5028 11 14.502C11.6806 14.5028 12.3524 14.3489 12.9648 14.0519C13.5772 13.755 14.1141 13.3228 14.535 12.788C14.6583 12.6319 14.8386 12.5312 15.0362 12.5081C15.2337 12.4849 15.4324 12.5412 15.5885 12.6645C15.7446 12.7878 15.8453 12.9681 15.8684 13.1657C15.8916 13.3632 15.8353 13.5619 15.712 13.718C15.1507 14.4306 14.435 15.0064 13.6187 15.4021C12.8025 15.7977 11.9071 16.0028 11 16.002C10.0917 16.0027 9.19522 15.797 8.3782 15.4002C7.56118 15.0035 6.84506 14.4262 6.28399 13.712C6.16618 13.5553 6.11438 13.3588 6.13966 13.1644C6.16495 12.9701 6.26532 12.7933 6.41928 12.6721C6.57324 12.5508 6.76857 12.4946 6.96345 12.5155C7.15833 12.5364 7.33727 12.6328 7.46199 12.784ZM7.99999 6.74999C8.16705 6.74527 8.33336 6.77409 8.48909 6.83476C8.64481 6.89542 8.7868 6.9867 8.90663 7.1032C9.02647 7.21969 9.12173 7.35904 9.18678 7.51298C9.25182 7.66693 9.28534 7.83237 9.28534 7.99949C9.28534 8.16662 9.25182 8.33205 9.18678 8.486C9.12173 8.63995 9.02647 8.77929 8.90663 8.89579C8.7868 9.01228 8.64481 9.10356 8.48909 9.16423C8.33336 9.2249 8.16705 9.25372 7.99999 9.24899C7.67472 9.23979 7.36586 9.10411 7.13904 8.87079C6.91223 8.63747 6.78534 8.32489 6.78534 7.99949C6.78534 7.67409 6.91223 7.36152 7.13904 7.1282C7.36586 6.89488 7.67472 6.7592 7.99999 6.74999ZM14 6.74999C14.167 6.74527 14.3334 6.77409 14.4891 6.83476C14.6448 6.89542 14.7868 6.9867 14.9066 7.1032C15.0265 7.21969 15.1217 7.35904 15.1868 7.51298C15.2518 7.66693 15.2853 7.83237 15.2853 7.99949C15.2853 8.16662 15.2518 8.33205 15.1868 8.486C15.1217 8.63995 15.0265 8.77929 14.9066 8.89579C14.7868 9.01228 14.6448 9.10356 14.4891 9.16423C14.3334 9.2249 14.167 9.25372 14 9.24899C13.6747 9.23979 13.3659 9.10411 13.139 8.87079C12.9122 8.63747 12.7853 8.32489 12.7853 7.99949C12.7853 7.67409 12.9122 7.36152 13.139 7.1282C13.3659 6.89488 13.6747 6.7592 14 6.74999Z" fill="#707991"/>
+                                        </svg>
+                                </button>
+            
+                                <input class="main__input" id="main__input" placeholder="Введи сообщение..." autofocus>
+            
+                                <button class="button button_form" id="button_poisoning" type="button">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.815 10.197L3.28299 11.453C3.19639 11.4675 3.11513 11.5045 3.04737 11.5603C2.97961 11.6161 2.92775 11.6888 2.89699 11.771L0.299988 18.728C0.0519883 19.368 0.720988 19.978 1.33499 19.671L19.335 10.671C19.4597 10.6088 19.5645 10.513 19.6378 10.3945C19.7111 10.276 19.7499 10.1394 19.7499 10C19.7499 9.86066 19.7111 9.72406 19.6378 9.60554C19.5645 9.48702 19.4597 9.39126 19.335 9.32901L1.33499 0.329007C0.720988 0.0220075 0.0519883 0.633008 0.299988 1.27201L2.89799 8.22901C2.9286 8.31142 2.98041 8.38431 3.04818 8.44031C3.11594 8.49632 3.19728 8.53347 3.28399 8.54801L10.816 9.80301C10.8623 9.81113 10.9043 9.83533 10.9346 9.87136C10.9649 9.9074 10.9815 9.95295 10.9815 10C10.9815 10.0471 10.9649 10.0926 10.9346 10.1287C10.9043 10.1647 10.8623 10.1889 10.816 10.197H10.815Z" fill="#8BABD8"/>
+                                        </svg>
+                                </button>
+                            </div>
+                    </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Боковая правая панель профиля собеседника-->
+    <div class="profile">
+        <div class="profile__wrapper">
+            <div class="profile__ico"></div>
+            <div class="profile_box-info">
+                <div class="profile__name">Бендер</div>
+                <div class="profile__time"><span class="main__user-status">Оnline</span></div>
+            </div>
+        </div>
+
+        <div class="profile__box">
+            <div class="profile__wrapper_box">
+                <span class="profile__box-text">Файлы</span>
+            </div>
+        </div>
+
+        <div class="profile__box">
+            <div class="profile__wrapper_box">
+                <span class="profile__box-text">Добавить в группы</span>
+            </div>
+        </div>
+
+        <div class="profile__box">
+            <div class="profile__wrapper_box">
+                <span class="profile__box-text">Общие группы</span>
+            </div>
+        </div>
+    </div>
+<!----------------------- Переделать ВСЁ ПО БЭМУ кроме кнопок, добавить дополнительные классы для позиционирования элемента, перенести все svg в отдельный файл, ввести все px em и rem, добавить адаптив для мобилки, добавить кнопку сменить фон --------------------------->
+        
+    <script type="module" src="scripts/script_messenger.js"></script>
+</body>
+</html>

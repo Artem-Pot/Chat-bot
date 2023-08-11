@@ -1,0 +1,776 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #fff;
+    --bg-colorInput: #F5F5F5;
+    --bg-colorMes: #84d2f7;
+    --text-colorMes: #000;
+    --text-color: #011627;
+    --text-colorUser:#707991;
+    --text-colorHover: #F5F5F5;
+    --text-color-online: #3bbb00;
+    --text-color-unread:#011627;
+    --border-color:#D9DCE0;
+    --bg-images-back: url(../img/messenger/background-5.jpg);
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+img {
+    height: 60px;
+    width: 60px;
+}
+
+.side-panel {
+    width: 100%;
+    max-width: 364px;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.settings {
+    width: 100%;
+    height: 56px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.settings__wrapper {
+    padding: 8px 24px;
+    display: flex;
+}
+
+.settings__menu {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.button {
+    outline: none;
+    border: none;
+    background-color: var(--bg-color);
+}
+
+.button:hover {
+    cursor: pointer;
+    fill-opacity: 0.5;
+}
+
+.settings__search {
+    width: 276px;
+    height: 40px;
+    background-color: var(--bg-colorInput);
+    border-radius: 22px;
+}
+
+.settings__form {
+    position: relative;
+}
+
+#settings__input {
+    width: 190px;
+    height: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #707991;
+    outline: none;
+    border: none;
+    background-color: var(--bg-colorInput);
+    position: absolute;
+    top: 10px;
+    left: 46px;
+}
+
+.button_menu-search {
+    background-color: var(--bg-colorInput);
+    position: absolute;
+    top: 10.5px;
+    left: 18.5px;
+} 
+
+/*Контакты*/
+.contacts {
+    width: 100%;
+    max-width: 364px;
+    height: calc(100vh - 56px); /* вычел высоту меню поиска и margin до контактов*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contacts__wrapper {
+    width: 100%;
+    height: 72px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);;
+}
+
+.contacts__wrapper:hover {
+    background-color: var(--text-colorHover);
+    cursor: pointer;
+}
+
+.contacts__user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contacts__ico {
+    width: 48px;
+    height: 48px;
+    border-radius: 100px;
+    position: relative;
+}
+
+.contacts__ico_1 {
+    background: url(../img/messenger/contacts__ico/contacts__ico-bender.jpg) center center no-repeat;
+    background-size:cover;
+}
+
+.contacts__ico_2 {
+    background: url(../img/messenger/contacts__ico/ico2.jpg) center center no-repeat;
+    background-size:cover;
+}
+
+.contacts__ico_3 {
+    background: url(../img/messenger/contacts__ico/ico3.jpg) center center no-repeat;
+    background-size:cover;
+}
+
+.contacts__status {
+    position: absolute;
+    background-color: #3bbb00;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    top: 42px;
+    left: 30px;
+    display: none;
+}
+
+.contacts__status-online {
+    display: block;
+}
+
+.contacts__box {
+    width: 286px;
+    height: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+
+.contacts__name {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contacts__nick {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contacts__span-nick {
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contacts__time {
+    width: 40px;
+    height: 16px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contacts__span-time {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--text-colorUser);
+}
+
+.contacts__mess {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contacts__messages {
+    width: 100%;
+    max-width: 245px;
+    height: 18px;
+    display: flex;
+    overflow: hidden;
+}
+
+.contacts__span-messages {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--text-colorUser);
+}
+
+.contacts__span-unread {
+    color: var(--text-color-unread);    
+}
+
+.contacts__unread {
+    width: 18px;
+    height: 18px;
+    background-color: var(--text-color-online);
+    border-radius: 100px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Блок с сообщениями*/
+main {
+    width: 100%;
+    height: 100vh;
+}
+
+.main__header {
+    width: 100%;
+    max-width: 100vw;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    position: relative;
+}
+
+.main__wrapper {
+    margin: 8px 16px;
+    width: 100%;
+    max-width: 100vw;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main__box-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main__contacts-ico {
+    background: url(../img/messenger/contacts__ico/contacts__ico-bender.jpg) center center no-repeat;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-size:cover;
+    margin-right: 16px;
+}
+
+.contacts__name-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__user-status {
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--text-color-online);
+    font-weight:600;
+}
+
+.main__box-settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 136px;
+    height: 40px;
+}
+
+.button_header {
+    background-color: var(--bg-color);
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+
+/* Поле с сообщениями*/
+.main__messenges {
+    width: 100%;
+    max-width: 100vw;
+    height: calc(100vh - 56px); /* 56 header и 1px border*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-images-back);
+    background-position: center center;
+    background-size:cover;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.main__wrapper-messenges {
+    width: 100%;
+    height: 100%;
+    margin:0 auto;
+    flex-direction: column;
+}
+
+.main__correspondence {
+    width: 100%;
+    height: calc(100% - 76px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.main__correspondence::-webkit-scrollbar { /*Скрывает полосу прокрутки*/
+    background-color: var(--bg-color);    /* цвет прокрутки */
+    border-radius: 3px;       /* закругления плашки */
+    border: 1px solid var(--border-color);
+    width: 10px;
+}  
+
+.main__correspondence::-webkit-scrollbar-thumb { /*цвет ползунка*/
+    background-color: #cccbcb;
+    width: 10px;
+    border-radius: 3px; 
+}
+
+.main__mess {
+    padding: 4px 12px;
+    max-width: 80%;
+    width: auto;
+    background-color: var(--bg-colorMes);
+    border-radius: 12px;
+    display: flex;
+    align-self:flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0 0 16px 40px;
+    color: var(--text-colorMes);
+    overflow-wrap: anywhere;
+}
+
+.main__mess-user {
+    padding: 4px 12px;
+    max-width: 80%;
+    width: auto;
+    background-color: #78E378;
+    border-radius: 12px;
+    display: flex;
+    align-self:flex-end;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0 40px 16px 0;
+    color: var(--text-colorMes);
+    overflow-wrap: anywhere;
+}
+
+.main__mess-system {
+    padding: 4px 12px;
+    width: auto;
+    max-width: 90%;
+    background-color: #e2e5e2;
+    border-radius: 12px;
+    display: flex;   
+    align-self:center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 16px 0;
+    color: var(--colorMes);
+    overflow-wrap: anywhere;
+}
+
+.main__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+    color: var(--text-colorMes);
+}
+
+.main__time-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 16px;
+}
+
+.main__time {
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--text-colorMes);
+}
+
+.main__read-no {
+    background: url(../img/messenger/no-read.svg) no-repeat center center;
+    width: 14px;
+    height: 14px;
+    margin-left: 4px;
+}
+
+/*нижнее поле ввода и кнопка отправки*/
+.main__form {
+    width: 100%;
+    height: 56px;
+    background-color: var(--bg-color);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.main__form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+}
+
+.main__form-smile {
+    position: relative;
+}
+
+.main__wripper-smile {
+    width: 205px;
+    height: 92px;
+    display: flex;
+    position: absolute;
+    bottom: 28px;
+    left: 10px;
+    display: none;
+    background-color: var(--bg-color);
+    border: 1px solid #84d2f7;
+}
+
+.button_smile {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.button_smile:hover {
+    background-color: #707991;
+}
+
+.button_form {
+    width: 24px;
+    height: 24px;
+}
+
+.main__input {
+    width: 100%;
+    line-height: 20px;
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    font-size: 1em;
+}
+/* Боковая панель с профилем*/
+.profile {
+    width: 300px;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.profile__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom:1px solid var(--border-color);
+    position: relative;
+}
+
+.profile__ico {
+    margin-top: 5px;
+    background: url(../img/messenger/contacts__ico/contacts__ico-bender.jpg) center center no-repeat;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    background-size:cover;
+    border: 1px solid var(--border-color);
+}
+
+.profile_box-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile__name {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.profile__time {
+    text-align: center;
+    font-size: 12px;
+}
+
+.profile__box {
+    padding-left: 10px;
+    font-size: 12px;
+    height: 60px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.profile__box:hover {
+    background-color: var(--text-colorHover);
+    cursor: pointer;
+}
+
+.profile__wrapper_box {
+    margin: 5px;
+}
+
+.profile__box-text {
+    color: var(--text-colorUser);
+}
+
+.profile__settings {
+    width: 210px;
+    height: 130px;
+    background-color: var(--bg-color);
+    position: absolute;
+    top:55px;
+    right: 0;
+    display: none;
+}
+
+/*-----Чек бокс переключатели начало------*/
+.profile__notifications {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    gap: 5px;
+    border-top: 1px solid var(--border-color);
+}
+
+.profile__text {
+    font-weight:600;
+    margin: 5px 0;
+    color: var(--text-color);
+}
+
+.checkbox-ios {
+	display: inline-block;    
+	height: 28px;    
+	line-height: 28px;  
+	margin-right: 10px;      
+	position: relative;
+	vertical-align: middle;
+	font-size: 14px;
+	user-select: none;	
+}
+
+.checkbox-ios .checkbox-ios-switch {
+	position: relative;	
+	display: inline-block;
+	box-sizing: border-box;			
+	width: 35px;	
+	height: 20px;
+	border: 1px solid rgba(0, 0, 0, .1);
+	border-radius: 25%/50%;	
+	vertical-align: top;
+	background: #eee;
+	transition: .2s;
+}
+
+.checkbox-ios .checkbox-ios-switch:before {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;	
+	display: inline-block;
+	width: 14px;	
+	height: 14px;
+	border-radius: 50%;
+	background-color: var(--bg-color);
+	box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+	transition: .15s;
+}
+
+.checkbox-ios input[type=checkbox] {
+	display: block;	
+	width: 0;
+	height: 0;	
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.checkbox-ios input[type=checkbox]:not(:disabled):active + .checkbox-ios-switch:before {
+	box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+}
+
+.checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch {
+	background: var(--text-color-online);
+}
+
+.checkbox-ios input[type=checkbox]:checked + .checkbox-ios-switch:before {
+	transform:translateX(15px);
+}
+
+/* Hover */
+.checkbox-ios input[type="checkbox"]:not(:disabled) + .checkbox-ios-switch {
+	cursor: pointer;
+	border-color: rgba(0, 0, 0, .3);
+}
+
+/* Disabled */
+.checkbox-ios input[type=checkbox]:disabled + .checkbox-ios-switch {
+	filter: grayscale(70%);
+	border-color: rgba(0, 0, 0, .1);
+}
+
+.checkbox-ios input[type=checkbox]:disabled + .checkbox-ios-switch:before {
+	background: #eee;
+}
+
+/* Focus */
+.checkbox-ios.focused .checkbox-ios-switch:before {
+	box-shadow: inset 0px 0px 4px #ff5623;
+}
+
+/*-----конец Чек бокс переключатели------*/
+@media screen and (max-width: 1290px) {
+    .profile {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .side-panel {
+        width: 250px;
+    }
+    .contacts__nick {
+        font-size: 14px;
+    }
+
+    #settings__input {
+        font-size: 14px;
+    }
+    .contacts__span-messages {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    #settings__input {
+        width: 100px;
+    }
+
+    .contacts__messages {
+        max-width: 140px;
+    }
+
+    .contacts__box {
+        width: 160px;
+    }
+
+    .contacts__status-online {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        top:42px;
+        left: 30px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .settings__search {
+        display: none;
+    }
+
+    .side-panel {
+        width: 70px;
+    }
+
+    .contacts__wrapper {
+        padding: 12px 10px;
+    }
+
+    .contacts__box {
+        display: none;
+    }
+    
+
+    #settings__input {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main__text {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .main__time {
+        font-size: 10px;
+        line-height: 13px;
+    }
+
+    .main__mess-system {
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .main__mess {
+        margin: 0 0 8px 40px;
+    }
+
+    .main__mess-user {
+        margin: 0 40px 8px 0;
+    }
+
+    .main__mess-system {
+        margin: 8px 0;
+    }
+}
