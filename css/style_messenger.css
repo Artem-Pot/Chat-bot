@@ -573,6 +573,8 @@ main {
     color: var(--text-colorUser);
 }
 
+/*-----Чек бокс переключатели начало------*/
+
 .profile__settings {
     width: 210px;
     height: 130px;
@@ -583,7 +585,10 @@ main {
     display: none;
 }
 
-/*-----Чек бокс переключатели начало------*/
+.profile__settings_active {
+    display: block;
+}
+
 .profile__notifications {
     display: flex;
     flex-direction: column;

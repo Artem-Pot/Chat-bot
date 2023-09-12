@@ -30,11 +30,10 @@ function getRandomBotObj(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
 
-//------------функция включения оповещения о сообщении----------------------
 
-//ползунок отключения/включения звука сообщения от бота
-const checkboxSound = document.getElementById("profile__checkbox-sound"); // поиск чек бокса твечающий за отклчюение/включение звука
-checkboxSound.addEventListener('change', sound); // обрабочик события нажатия на чек бокс
+//переключатель отключения/включения звука сообщения от бота
+const checkboxSound = document.getElementById("profile__checkbox-sound"); // поиск чек бокса отвечающий за отключение/включение звука
+checkboxSound.addEventListener('change', sound); // обработчик события нажатия на чек бокс
 
 function sound() {
     if (checkboxSound.checked) {
@@ -43,6 +42,7 @@ function sound() {
         soundOff();
       }
 }
+
 //функция включения включения звука уведомления
 function soundOn() {
     const audio = new Audio();
@@ -69,7 +69,7 @@ function textOneBot() {
     div.className = "main__mess-system";                                            // присвоение новому элементу класс message__bot
     Message.append(div); // добавить блок с сообщениеем - последним
 
-      //--------время для сообщения----------
+      //--------показ времени сообщения----------
     const d = new Date();
     const h = `${d.getHours()}`.padStart(2, '0');
     const m = `${d.getMinutes()}`.padStart(2, '0');
@@ -87,9 +87,9 @@ function textOneBot() {
   //  soundOne(); //функция проигрывания мелоии при вкюченние чата
 }
 
-setTimeout(() => { textOneBot(); }, 1000);   //вызов функции первого сообшения ботом через время после загрузки страницы
+setTimeout(() => { textOneBot(); }, 1000);   //вызов функции первого сообщения ботом через заданное время после загрузки страницы
 
-// -----------------сообщение пользвователя---------------------------
+// -----------------сообщение пользователя---------------------------
 function textInput() {         
     let userMessage = document.getElementById('main__input').value; // поиск текста в форме сообщения пользователя
     const div = document.createElement('div'); // создание нового diva
@@ -101,7 +101,7 @@ function textInput() {
     var displayDate = h + ":" + m;
   
     if (userMessage === '') {
-        document.getElementById("main__input").focus(); // фокусирует элемиент ввода сообщения
+        document.getElementById("main__input").focus(); // фокусирует элемент ввода сообщения
     }
 
     else if (userMessage === '!список') {
@@ -111,7 +111,7 @@ function textInput() {
     }
 
     else if (userMessage === '!фраза') {
-        div.innerHTML = Object.keys(ObText); // выводит все свойства объекта(фразы на котоыре отвечает бот)
+        div.innerHTML = Object.keys(ObText); // выводит все свойства объекта(фразы на которые отвечает бот)
         div.className = "main__mess-system"; // присвоение новому элементу класс с системным сообщением
         document.getElementById('main__input').value = ''; // очистка блока сообщений
     }
@@ -132,7 +132,7 @@ function textInput() {
         setTimeout(() => { textBot(); }, 1000); // функция задержки вывода сообщения бота мсек, связано с очисткой сообщения
     }
 
-    Message.append(div); // добавить блок с сообщениеем - последним
+    Message.append(div); // добавить блок с сообщением - самым последним
     block.scrollTop = block.scrollHeight; // прокрутка блока до самого низа
 }
 
@@ -202,25 +202,24 @@ checkboxTheme.addEventListener('change', function() {
     root.style.setProperty('--bg-images-back', 'url(../img/messenger/background-5.jpg)');
   }
 });
-// ------выпадающее меню с найтроками уведомления и темой--------------
 
-const settings = document.getElementById('button__settings'); // переменная - событие отправки, при нажати на кнопку
-settings.addEventListener('click', butSettings); // обработчик события нажатии на кнопку
-
-// событие когда форма теряет фокус
-// settings.addEventListener('focusout', function (event) {
-//     document.querySelector('.profile__settings').style.display = 'none';
-// });
-
-function butSettings() { 
-    let sm = document.querySelector('.profile__settings').style;
-    if (sm.display === 'block') { // если не скрытый, то скрывает его
-        sm.display = 'none'; 
-    } 
-    else {
-        sm.display = 'block';
-    }
+checkboxTheme.onblur = function() { // вызов функци при потере фокуса
+   console.log('потеря фокуса');
+    
 }
+
+// ------выпадающее меню с иконками уведомления и темой--------------
+
+//меню с настройками
+const settings = document.getElementById('button__settings'); // переменная - событие отправки, при нажатии на кнопку
+const profileSettings = document.querySelector('.profile__settings'); //блок с выпадающим  меню
+const profileSettings2 = document.querySelector('.profile__settings_active'); //блок с выпадающим  меню
+
+settings.onclick = function() {
+        profileSettings.classList.toggle('profile__settings_active');
+        
+};
+
 
 //--------------- смайлы------------------
 // событие нажатия на кнопку смайлы
