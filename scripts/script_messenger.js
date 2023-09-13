@@ -253,71 +253,19 @@ document.addEventListener('click', event => {
   }
 })
 
+//// выбор смайлов из подключенного модуля emoji-picker-element
+document.querySelector('emoji-picker')
+  .addEventListener('emoji-click', event => {userMessage.value = userMessage.value + event.detail.unicode});
 
-//// выбор смайлов из меню
+//создание базы данных сообщения или что либо ещё. База уже умеет создаваться. https://metanit.com/web/nodejs/8.4.php
 
-const smile1 = document.getElementById('button_smile_1'); 
-smile1.addEventListener('click', () => { userMessage.value = userMessage.value + '😀'}); 
-
-const smile2 = document.getElementById('button_smile_2'); 
-smile2.addEventListener('click', () => { userMessage.value = userMessage.value + '😂'}); 
-
-const smile3 = document.getElementById('button_smile_3'); 
-smile3.addEventListener('click', () => { userMessage.value = userMessage.value + '😉'}); 
-
-const smile4 = document.getElementById('button_smile_4'); 
-smile4.addEventListener('click', () => { userMessage.value = userMessage.value + '😋'}); 
-
-const smile5 = document.getElementById('button_smile_5'); 
-smile5.addEventListener('click', () => { userMessage.value = userMessage.value + '💩'}); 
-
-const smile6 = document.getElementById('button_smile_6'); 
-smile6.addEventListener('click', () => { userMessage.value = userMessage.value + '😳'});  
-
-const smile7 = document.getElementById('button_smile_7'); 
-smile7.addEventListener('click', () => { userMessage.value = userMessage.value + '🙃'});  
-
-const smile8 = document.getElementById('button_smile_8');
-smile8.addEventListener('click', () => { userMessage.value = userMessage.value + '😉'}); 
-
-const smile9 = document.getElementById('button_smile_9');
-smile9.addEventListener('click', () => { userMessage.value = userMessage.value + '😘'}); 
-
-const smile10 = document.getElementById('button_smile_10');
-smile10.addEventListener('click', () => { userMessage.value = userMessage.value + '😪'}); 
-
-const smile11 = document.getElementById('button_smile_11'); 
-smile11.addEventListener('click', () => { userMessage.value = userMessage.value + '😴'});  
-
-const smile12 = document.getElementById('button_smile_12'); 
-smile12.addEventListener('click', () => { userMessage.value = userMessage.value + '🤢'}); 
-
-const smile13 = document.getElementById('button_smile_13'); 
-smile13.addEventListener('click', () => { userMessage.value = userMessage.value + '🥳'}); 
-
-const smile14 = document.getElementById('button_smile_14'); 
-smile14.addEventListener('click', () => { userMessage.value = userMessage.value + '😎'});  
-
-const smile15 = document.getElementById('button_smile_15'); 
-smile15.addEventListener('click', () => { userMessage.value = userMessage.value + '😡'});  
-
-const smile16 = document.getElementById('button_smile_16'); 
-smile16.addEventListener('click', () => { userMessage.value = userMessage.value + '💋'}); 
-
-const smile17 = document.getElementById('button_smile_17');
-smile17.addEventListener('click', () => { userMessage.value = userMessage.value + '💣'}); 
-
-const smile18 = document.getElementById('button_smile_18');
-smile18.addEventListener('click', () => { userMessage.value = userMessage.value + '👌'}); 
 
 // добавить ответы на смайлики и сами смайлы в сообщения
-// смайлы сами не сворачивают и меню, не получилось этого сделать при потере фокуса. 
-//и сократить код для смайлов + добавить больше
 //ajax читать, чтобы сделать полноценный онлайн чат
 // реализовать функцию переключения между пользователя и начала чата с ними.
 // добавить изменение галочки со временем
 
 // добавить функцию поиска не только по точной фразе и но части предложения, чтоб увеличить словарный запас
 //добавить сценарий в виде ветвления.
-// добавить функцию самообучения бота - добавить команду !команда, котое будет вызывать алерт в который добавить фразу и ответ к ней. 
+// добавить функцию самообучения бота - добавить команду !команда, которая будет вызывать алерт в который добавить фразу и ответ к ней. 
 // Далее добавить, чтобы лог записывался и добавлялся в массив с новыми фразами, скорей всего не обойтись без сервера иначе после каждого обновления станицы всё будет пропадать. (node js и msql) или добавить куки для сохранения данных при перезагрузки страницы

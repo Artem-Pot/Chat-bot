@@ -477,8 +477,8 @@ main {
     height: 92px;
     display: flex;
     position: absolute;
-    bottom: 28px;
-    left: 10px;
+    bottom: 337px;
+    left: -17px;
     display: none;
     background-color: var(--bg-color);
     border: 1px solid #84d2f7;
@@ -779,3 +779,9 @@ main {
         margin: 8px 0;
     }
 }
+
+
+emoji-picker {
+    --emoji-font-family: MyCustomFont;
+    
+  }
