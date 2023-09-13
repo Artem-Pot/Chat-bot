@@ -3,7 +3,7 @@ import {botMessagesArr, ObText, botOneimgArr} from './script.chatarr.js';
 const Message = document.querySelector('.main__correspondence'); // поле с сообщениями
 
 // событие нажатия на кнопку отправить
-const submit = document.getElementById('button_poisoning'); // переменная - событие отправки, при нажати на кнопку
+const submit = document.getElementById('button_poisoning'); // переменная - событие отправки, при нажатии на кнопку
 submit.addEventListener('click', textInput); // обработчик события нажатии на кнопку
 
 // событие нажатия на клавишу ENTER
@@ -16,7 +16,7 @@ userMessage.addEventListener("keypress", function(event) {
   }
 });
 
-//функция рандома сообщений бота
+//функция рандомных сообщений бота
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(0);
     max = Math.floor(botMessagesArr.length-1);
@@ -166,7 +166,7 @@ function textBot() {
     }
     sound();
     div.className = "main__mess"; // присвоение новому элементу класс main__mess
-    Message.append(div); // добавить блок с сообщениеем - последним
+    Message.append(div); // добавить блок с сообщение - последним
     block.scrollTop = block.scrollHeight; // прокрутка блока до самого низа
     document.getElementById('main__input').value = ''; // очистка поля ввода от текста после отправки сообщения пользователем (работает не так как нужно т.к. когда она стояла в функции вывода сообщения пользователя она стила сообщение и я не мог взять от туда данные), не работает если просто указать переменную userMessage, поэтому пришлось искать элемент заново   
 }
@@ -203,48 +203,61 @@ checkboxTheme.addEventListener('change', function() {
   }
 });
 
-checkboxTheme.onblur = function() { // вызов функци при потере фокуса
-   console.log('потеря фокуса');
-    
+// ------выпадающее меню с иконками уведомления и темой--------------
+//меню с настройками
+const settings = document.getElementById('button__settings'); // переменная  - событие отправки, при нажатии на кнопку
+const menuSettings = document.querySelector('.profile__settings');
+
+const toggleMenu = () => {
+    menuSettings.classList.toggle('profile__settings_active');
 }
 
-// ------выпадающее меню с иконками уведомления и темой--------------
+settings.addEventListener('click', event => {
+    event.stopPropagation();
+  toggleMenu();
+});
 
-//меню с настройками
-const settings = document.getElementById('button__settings'); // переменная - событие отправки, при нажатии на кнопку
-const profileSettings = document.querySelector('.profile__settings'); //блок с выпадающим  меню
-const profileSettings2 = document.querySelector('.profile__settings_active'); //блок с выпадающим  меню
-
-settings.onclick = function() {
-        profileSettings.classList.toggle('profile__settings_active');
-        
-};
-
+document.addEventListener('click', event => {
+  const target = event.target;
+  const its_menuSettings = target == menuSettings || menuSettings.contains(target);
+  const its_settings = target == settings;
+  const menuSettings_is_active = menuSettings.classList.contains('profile__settings_active');
+  
+  if (!its_menuSettings && !its_settings && menuSettings_is_active) {
+    toggleMenu();
+  }
+})
 
 //--------------- смайлы------------------
 // событие нажатия на кнопку смайлы
+const buttonSmile = document.getElementById('button_smile'); // переменная  - событие отправки, при нажатии на кнопку
+const menuSmile = document.querySelector('.main__wrapper-smile');
 
-const smile = document.getElementById('button_smile'); // переменная - событие отправки, при нажати на кнопку
-smile.addEventListener('click', smileFuc); // обработчик события нажатии на кнопку
-
-// // событие когда форма теряет фокус
-// smile.addEventListener('focusout', function (event) {
-//     document.querySelector('.main__wripper-smile').style.display = 'none';
-// });
-
-//срабатые когда нажимаю на кнопку со смайлами - показывает доступные смайлы
-function smileFuc() {
-    let sm = document.querySelector('.main__wripper-smile').style;
-    if (sm.display === 'block') { // если не скрытый, то скрывает его
-        sm.display = 'none'; 
-    } 
-    else {
-        sm.display = 'block';
-    }
+const smile = () => {
+    menuSmile.classList.toggle('profile__settings_active');
 }
 
-const smile1 = document.getElementById('button_smile_1'); // переменная - событие отправки, при нажати на кнопку
-smile1.addEventListener('click', () => { userMessage.value = userMessage.value + '😀'}); // обработчик события нажатия на кнопку
+buttonSmile.addEventListener('click', event => {
+    event.stopPropagation();
+    smile();
+});
+
+document.addEventListener('click', event => {
+  const target = event.target;
+  const its_menuSmile = target == menuSmile || menuSmile.contains(target);
+  const its_buttonSmile = target == buttonSmile;
+  const menuSmile_is_active = menuSmile.classList.contains('profile__settings_active');
+  
+  if (!its_menuSmile && !its_buttonSmile && menuSmile_is_active) {
+    smile();
+  }
+})
+
+
+//// выбор смайлов из меню
+
+const smile1 = document.getElementById('button_smile_1'); 
+smile1.addEventListener('click', () => { userMessage.value = userMessage.value + '😀'}); 
 
 const smile2 = document.getElementById('button_smile_2'); 
 smile2.addEventListener('click', () => { userMessage.value = userMessage.value + '😂'}); 
@@ -296,7 +309,6 @@ smile17.addEventListener('click', () => { userMessage.value = userMessage.value 
 
 const smile18 = document.getElementById('button_smile_18');
 smile18.addEventListener('click', () => { userMessage.value = userMessage.value + '👌'}); 
-
 
 // добавить ответы на смайлики и сами смайлы в сообщения
 // смайлы сами не сворачивают и меню, не получилось этого сделать при потере фокуса. 
